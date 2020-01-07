@@ -77,4 +77,20 @@ def exercise6():
     query_database(query)
 
 
-exercise6()
+# exercise6()
+
+def exercise7():
+    query = """SELECT last_name, first_name FROM employees
+                    WHERE LENGTH(first_name) = 6"""
+    query_database(query)
+
+
+# exercise7()
+
+def exercise8():
+    query = """SELECT last_name FROM employees
+                    WHERE last_name LIKE '__e%'"""
+    query_database(query)
+
+
+exercise8()
