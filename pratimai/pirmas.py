@@ -138,3 +138,44 @@ def exercise2nd_7():
 
 
 exercise2nd_7()
+
+
+def exercise2nd_8():
+    query = "SELECT (MAX(salary) - MIN(salary)) as DIF_salary FROM employees"
+
+    query_database(query)
+
+
+exercise2nd_8()
+
+
+def exercise2nd_9():
+    query = """SELECT department_id, SUM(salary) FROM employees
+               GROUP BY department_id"""
+
+    query_database(query)
+
+
+exercise2nd_9()
+
+
+def exercise2nd_10():
+    query = """SELECT AVG(salary), job_id FROM employees
+                WHERE NOT job_id = 'IT_PROG'
+               GROUP BY job_id"""
+
+    query_database(query)
+
+
+exercise2nd_10()
+
+
+def exercise2nd_11():
+    query = """SELECT MIN(salary), manager_id, job_id FROM employees
+                GROUP by manager_id
+               """
+
+    query_database(query)
+
+
+exercise2nd_11()
