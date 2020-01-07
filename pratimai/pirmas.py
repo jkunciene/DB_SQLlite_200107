@@ -73,7 +73,7 @@ def exercise5():
 
 def exercise6():
     query = """SELECT last_name, job_id, salary FROM employees
-                    WHERE (( job_id='IT_PROG') OR ( job_id='SH_CLERK')) AND ((salary <> 4500) OR (salary <>10000) OR (salary <> 15000)) """
+                    WHERE (( job_id='IT_PROG') OR ( job_id='SH_CLERK')) AND ((salary <> 4500) AND (salary <> 10000) AND (salary <> 15000)) """
     query_database(query)
 
 
@@ -93,4 +93,48 @@ def exercise8():
     query_database(query)
 
 
-exercise8()
+# exercise8()
+
+def exercise9():
+    query = "SELECT SUM(salary) FROM employees"
+    query_database(query)
+
+
+# exercise9()
+
+def exercise10():
+    query = "SELECT MIN(salary) FROM employees"
+    query_database(query)
+
+
+# exercise10()
+
+def exercise11():
+    query = "SELECT MAX(salary) FROM employees"
+    query_database(query)
+
+
+# exercise11()
+
+def exercise2nd_5():
+    query = """SELECT AVG(salary), COUNT(employee_id) FROM employees
+                WHERE department_id = 90"""
+    query_database(query)
+
+
+# exercise2nd_5()
+
+def exercise2nd_6():
+    query = "SELECT MIN(salary), MAX(salary), SUM(salary), AVG(salary) FROM employees"
+    query_database(query)
+
+
+# exercise2nd_6()
+
+def exercise2nd_7():
+    query = """SELECT job_id, COUNT(*)  FROM employees
+                ORDER BY job_id"""
+    query_database(query)
+
+
+exercise2nd_7()
