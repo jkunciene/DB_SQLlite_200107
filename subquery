@@ -1,0 +1,42 @@
+import sqlite3
+
+
+def open_connection():
+    connection = sqlite3.connect("exercise.db")
+    cursor = connection.cursor()
+    return connection, cursor
+
+
+def close_connection(connection, cursor):
+    cursor.close()
+    connection.close()
+
+
+def query_database(query, params=None):
+    try:
+        connection, cursor = open_connection()
+        # klaidu gaudymas, vykdyk, jei nera klaidos, jei yra parodyk kokia
+        if params:
+            cursor.execute(query, params)
+            connection.commit()
+        else:
+            for row in cursor.execute(query):
+                print(row)
+
+    except sqlite3.DataError as error:
+        print(error)
+    finally:
+        connection.close()
+
+
+def exercise1():
+    query = """SELECT first_name, last_name, salary 
+                FROM employees 
+                WHERE salary > (SELECT salary
+                FROM employees 
+                WHERE last_name='Bull')
+                """
+    query_database(query)
+
+
+exercise1()
