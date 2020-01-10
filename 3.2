@@ -1,0 +1,10 @@
+
+def exercise2():
+    query = """SELECT first_name, last_name, employee_id, manager_id, job_id
+                FROM employees 
+                WHERE  (employee_id IN (SELECT manager_id FROM employees))
+                """
+    query_database(query)
+
+
+exercise2()
